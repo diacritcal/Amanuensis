@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww25400\viewh14520\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf0 Figure~\{\\urlh\{#fig_Integrated_Architecture_Integrated_Figure\}\{48\}\} shows a diagram of the human brain overlaid with a simplified architectural drawing. The box shapes represent abstract systems and the oval and triangular shapes represent anatomical features for which we can supply computational models. For example, the box labeled GW represents the global workspace which performs particular function in the architecture, but actually spans a good portion of the neocortex. Whereas the triangle labeled BG represents a group of subcortical nuclei called the basal ganglia situated at the base of the forebrain.\
+\
+The box labeled AST represents a form of sensory input corresponding to the ingestion of abstract syntax trees representing code fragments. The oval labeled SMS represents semantic memory and the box labeled DNC corresponds to a differentiable neural computer. When the system ingests a new program fragment the resulting AST is encoded in the SMS as an embedding vector and simultaneously as a set of key-value pairs in the DNC. Here we think of the DNC as a body part or external prosthesis with corresponding maps in the somatosensory and motor cortex that enable reading and writing respectively.\
+\
+Our explanation of the architecture proceeds top down, as it were, with a discussion of executive function in the prefrontal cortex. The GWS provides two-way connection between structures in the prefrontal cortex and homologous structures of a roughly semantic character throughout the rest of neocortex thereby enabling the PFC to listen in on diverse circuits in the neocortex and select a subset of such circuits for attention. Stanislas Dehaene describes this process as the function of consciousness, but we need not commit ourselves to such interpretation here.\
+\
+Not only does the PFC selectively activate circuits but it can also maintain the activity such circuits indefinitely as constituents of working memory. Since this capability is limited by the capacity of the PFC, the content of working memory is limited and adding new constituents may curtail the activation of existing constituents. In practice, we intend to model this capability using meta-reinforcement learning~\\cite\{WangetalNATURE-NEUROSCIENCE-18\} (MRL) in which the MRL system relies on the GWS network to sample, evaluate and select constitute circuits guided by a suitable prior~\\cite\{BengioCoRR-17\} and past experience and then maintain their activity by a combination of memory networks~\\cite\{WestonetalCoRR-14\} and fast weights~\\cite\{BaetalCoRR-16\}. \
+\
+%%% Saved as Integrated_Architecture_Explanatory_Description_05\'9620-18.6-42AM.rtf\
+\
+Meta-reinforcement learning serves a second complementary role in the PFC related to executive function. We will refer to the first role as MRL-A for \'93attention\'94 and the second as MRL-P for \'93planning\'94. MRL-A is trained to focus attention on relevant new sensory input and new interpretations of and associations among prior perceptions and thoughts. MRL-P is trained to capitalize on and respond to opportunities made available by new and existing constituents in working memory. Essentially MRL-P is responsible for the scheduling and deployment of plans relevant to recognized opportunities to act. These plans are realized as policies trained by reinforcement learning from traces of past experience or constructed on the fly in response to unexpected / unfamiliar contingencies by recovering and reimagining past activities recovered from episodic memory.\
+\
+MRL-A and MRL-P could possibly be implemented as a single policy but it is simpler to think of them as two coupled systems, one responsible for focusing attention by constantly assessing changes in (neural) activity throughout the global workspace, and a second responsible for overseeing the execution of plans in responding to new opportunities to solve problems.\
+\
+%%% Saved as Integrated_Architecture_Explanatory_Description_05\'9620-18.8-47AM.rtf \
+\
+MRL-A is as a relatively straightforward reinforcement learning system independently performing its task largely a function of whatever neural activity is going on in the GW, its attentional network and the prior baked into its reward function. \
+MRL-P could be implemented along the lines of the Imagination-Augmented Agent (I2A) architecture~\\cite\{WeberetalCoRR-17\} or the related Imagination-Based Optimization~\\cite\{HamricketalCoRR-17\} and \
+Imagination-Based Planning~\\cite\{PascanuetalCoRR-17\} systems.\
+\
+The remaining parts of the architecture involve the interplay between the PFC and the semantic and episodic memory systems as facilitated by the basal ganglia and hippocampus. If we had a policy pre-trained for every possible contingency, we would be nearly done \\emdash\{\} let MRL-A draw attention to relevant internal and external activity and then design a simple just-in-time greedy scheduler that picks the policy with the highest reward given the state vector corresponding to the current content of working memory. Unfortunately, the life of an apprentice programmer is not nearly so simple.\
+\
+The apprentice might listen to advice from a human programmer or watch someone solve a novel coding problem or repair a buggy program. Alternatively, it may be relatively simple to adapt an existing policy to work in the present circumstances. However, making progress on harder problems will depend on expert feedback or having an existing reward function that generalizes to the problem at hand. In the remainder of this entry, we set aside these problems for another day and concentrate on the basic functionality provided by the basal ganglia as highlighted in Panel \{\\rawhtml<span style="color:red">(c)</span>\\endrawhtml\} \\emdash\{\} of Figure~\{\\urlh\{#fig_Integrated_Architecture_Integrated_Figure\}\{48\}\}.\
+\
+%%% Saved as Integrated_Architecture_Explanatory_Description_05\'9620-18.9-43AM.rtf\
+\
+Returning to our default representation for the simplest sort of episodic memory, $(s_\{t\},\\;a_\{t\},\\;r_\{t\},\\; a_\{t+1\})$, it\'92s easy to think of a state $s$ as a vector $s \\hmisin\{\} \\hmreals\{\}^\{n\}$ and a reward $r$ as a scalar value, $r \\hmisin\{\} \\hmreala\{\}$, but how are actions represented?\
+\
+%%% Saved as Integrated_Architecture_Explanatory_Description_05\'9620-18.03-00PM.rtf\
+\
+\
+\
+\
+\
+\
+}

@@ -1,0 +1,124 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{color,graphicx,subfigure,url}
+\usepackage[left=2.5cm,right=2.5cm,top=2.75cm,bottom=2.5cm,nohead]{geometry}
+
+%%% The times package is obsolete; the recommended replacement follow:
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+
+%%% A collection of arithmetic operations for fixed-point computation:
+\usepackage{fp}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% DECLARE TEX2PAGE IF
+\newif\ifrawhtmlvar
+%%% SET TRUE FOR HTML
+\rawhtmlvartrue
+%%% SET FALSE FOR LATEX
+% \rawhtmlvarfalse
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{/u/tld/Drive/write/latex/tex2page.macros.tex}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Generic title for research notes:
+
+\title{Miscellaneous Research Notes}
+
+%% Leave this field blank for dates:
+
+\date{}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\begin{document}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\rawhtml
+<a name="introduction_and_high_level_content"></a>
+\endrawhtml
+\subsection*{Introduction}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf{Develop systems that enable human-machine collaboration on challenging design problems including software engineering:}}
+
+The objective of this effort is to develop digital assistants that learn from continuous dialog with an expert software engineer while providing initial value as powerful analytical, computational and mathematical savants. Over time these savants learn cognitive strategies (domain-relevant problem solving skills) and develop intuitions (heuristics and the experience necessary for applying them) by learning from their expert associates. By doing so these savants elevate their innate analytical skills allowing them to partner on an equal footing as versatile collaborators \emdash{} effectively cognitive extensions and digital prostheses, thereby amplifying and emulating their human partner's conceptually-flexible thinking patterns and enabling improved access to and control over powerful computing resources. 
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf{Leverage and extend the current state of the art in machine learning by combining human and machine intelligence:}}
+
+Current methods for training neural networks typically require substantial amounts of carefully labeled and curated data. Moreover the environments in which many learning systems are expected to perform are partially observable and non-stationary. The distributions that govern the presentation of examples change over time requiring constant effort to collect new data and retrain. The ability to solicit and incorporate knowledge gleaned from new experience to modify subsequent expectations and adapt behavior is particularly important for systems such as digital assistants with whom we interact and routinely share experience. Effective planning and decision making rely on counterfactual reasoning in which we imagine future states in which propositions not currently true are accommodated or steps taken to make them true~\cite{HassabisandMaguireTiCS-07}. The ability for digital assistants to construct predictive models of other agents \emdash{} so-called theory of mind modeling \emdash{} is critically important for collaboration~\cite{RabinowitzetalCoRR-18}.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf{Draw insight from cognitive and systems neuroscience to implement hybrid connectionist and symbolic reasoning systems:}}
+
+Many state-of-the-art machine learning systems now combine differentiable and non-differentiable computational models. The former consist of fully-differentiable connectionist artificial neural networks. They achieve their competence by leveraging a combination of distributed representations facilitating context-sensitive, noise-tolerant pattern-recognition and end-to-end training via backpropagation. The latter, non-differentiable models, excel at manipulating representations that exhibit combinatorial syntax and semantics, are said to be full systematic and compositional, and can directly and efficiently exploit the advantages of traditional von Neumann computing architectures. The differences between the two models are at the heart of the connectionist versus symbolic systems debate that dominated cognitive science in 80's and continues to this day~\cite{OReillyetalTACO-14,FodorandPylyshynCOGNITION-88}. Rather than simulate symbolic reasoning within connectionist models or vice a versa, we simply acknowledge their strengths and build systems that enable efficient integration of both types of reasoning.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf{Take advantage of advances in natural language processing to implement systems capable of continuous focused dialog:}}
+
+Language is arguably the most important technical innovation in the history of humanity. Not only does it make possible our advanced social skills, but it allows us to pass knowledge from one generation to the next and provides the foundation for mathematical and logical reasoning. Natural language is our native programming language. It is the way we communicate plans and coordinate their execution. In terms of expressiveness, it surpasses modern computer programming languages, but its capability for communicating imprecisely and even incoherently, and our tendency for utilizing that capability makes it a poor tool for programming conventional computers. That said it serves us well in training scientists and engineers to develop and apply more precise languages, and its expressiveness along with our facility using it make it an ideal means for humans and AI systems to collaborate. The consolidation and subsequent recall and management of episodic memory is a key part of what makes us human and enables our diverse social behaviors. Episodic memory makes it possible to create and maintain long-term relationships and collaborations~\cite{PritzeletalICML-17,MoscovitchetalARP-16,OReillyetalCS-15}.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf{Think seriously about how such technology might ultimately be used to build powerful direct-brain-interface prostheses:}}
+
+This exercise primarily relies on the use of natural language to facilitate communication between the expert programmer and apprentice AI system. The AI system learns to use natural language in much the same way as a human apprentice would \emdash{} as a flexible and expressive tool to capture and convey understanding as well as misunderstanding and ambiguity. The AI system interacts with computing hardware through a highly instrumented integrated development environment. Essentially, the AI system can read, write, execute and debug code by simply thinking \emdash{} reading and writing to a differentiable neural computing interface~\cite{GravesetalNATURE-16}. It can also directly sense code running by reading from {\tt{STDERR}} and {\tt{STDIO}}, parsing output from the debugger and collecting and analyzing program traces. The same principles could be applied to develop digital prostheses employed for a wide range of intelligence-enhancing human-computer interfaces.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\rawhtml
+<a name="architecture_focus_on_challenges"></a>
+\endrawhtml
+\subsection*{Architecture}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+It is important to keep in mind that any program specification whether in the form of input/output pairs or natural language descriptions when communicated between individuals of differing expertise is \emdash{} or at least should be \emdash{} just the beginning of a conversation. Experts are often careless in specifying computations and assume too much of the student. Students, on the other hand, can surprise experts with their clear thinking while frustrate and disappoint with their difficulty in handling ambiguity and analogy, particularly of an esoteric sort primarily familiar to professional programmers.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+sustained conversation 
+
+knowledge and expertise
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\rawhtml
+<a name="leveraging_biological_knowledge"></a>
+\endrawhtml
+\subsection*{Biological Insight}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Here are the parts of the brain that we care about in this monograph [...] note here or in the next couple paragraphs that while we have not specifically represented the reward center of the brain \emdash{} the so-called limbic system \emdash{} it is not as though the system we are talking about here has no connection to rewards, but rather that our use of the term is very limited and has little or nothing to do with the related parts of the brain except insofar as we employ a reward signal based upon externally generated stimuli that guides learning.
+
+These are the parts of the brain that will provide us with important hints about how to build an integrated system capable of collaborating with human experts in designing complex artifacts like computer programs.
+
+Fortunately, the relevant lessons we have learned have been compiled into systems level descriptions that we can directly apply to building such systems. Indeed, the handful of basic functions identified by labeled shapes in the diagram provide us with most of what we need to guide our design.
+
+The integrated systems that we discussed in this monograph are largely based upon ideas that were formulated nearly half a century ago but that have very recently been revived and considerably extended in large part by the availability of massive computing resources.
+
+These systems were once referred to as connectionist and now as if to distance them from their origins in the memory of their denunciation, dismissal and eventual restoration and reinvention, they are typically referred to as "deep" as in "consisting of multiple layers" thereby differentiating them from the simpler, less powerful perceptron models of the 80s.
+
+[...] define "hidden" layer [...] briefly explain why hidden layer models are more powerful [...] say something about O'Reilly's deconstruction of Fodor and Pylyshyn’s paper and the notions of context sensitivity and systematicity [...] ~\cite{FodorandPylyshynCOGNITION-88,CalvoandSymonsTACO-14,OReillyetalTACO-14} [...] talk about the allure of rule-based systems, how they dominated artificial intelligence in the 1980s and why we now have a better appreciation of the trade-offs involved in each of these two approaches to building intelligent systems [...] specifically mention the benefits in training completely differentiable models using back propagation [...] how we intend to avoid the problems inherent in (strictly) supervised learning due to the need for labeled data [...]
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{/u/tld/Drive/write/latex/plain.bst}
+\bibliography{/u/tld/Drive/write/bibtex/dean.bib}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
