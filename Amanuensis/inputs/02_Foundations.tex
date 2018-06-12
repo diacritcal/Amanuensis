@@ -1,8 +1,77 @@
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \rawhtml
-<a name="architecture_focus_on_challenges"></a>
+<a name="foundation_cognitive_neuroscience"></a>
 \endrawhtml
-\subsection*{Architecture}
+\subsection*{Foundations}
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+The fields of cognitive and systems neuroscience are playing an important role in directing and accelerating research on artificial neural network systems. Much of this work predates and helped give rise to the especially exciting work on connectionist models in the 1980s. However, in the nearly 40 intervening years, a great deal of progress has been made much of it due to improved methods for studying the behavior of awake behaving animal subjects and human beings in particular. Indeed, this work is undergoing a renaissance fueled by even more powerful methods for observing brain activity in human beings in the midst of solving complex cognitive tasks.
+
+In contrast, the field the automatic programing / code synthesis, after decades of steady, often quite practical but not particularly remarkable progress on using symbolic methods \emdash{} much of it originating in labs outside the United States, is seeing a resurgence of research instigated in large part by the renewed interest and substantial progress on artificial neural networks. It remains to be seen whether artificial neural networks will have a significant impact on code synthesis, however there appear to be opportunities to leverage what we know about both natural and artificial neural networks to make progress, and hybrid systems that combine both connectionist and traditional symbolic methods may have the best chance of pushing the state-of-the-art significantly beyond its present level.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Here are the parts of the brain that we care about in this monograph [...] note here or in the next couple paragraphs that while we have not specifically represented the reward center of the brain \emdash{} the so-called limbic system \emdash{} it is not as though the system we are talking about here has no connection to rewards, but rather that our use of the term is very limited and has little or nothing to do with the related parts of the brain except insofar as we employ a reward signal based upon externally generated stimuli that guides learning.
+
+These are the parts of the brain that will provide us with important hints about how to build an integrated system capable of collaborating with human experts in designing complex artifacts like computer programs. Fortunately, the relevant lessons we have learned have been compiled into systems-level descriptions that we can directly apply to building such systems. Indeed, the handful of basic functions identified by labeled shapes in the diagram provide us with most of what we need to guide our design.
+
+The integrated systems that we discuss in this monograph are largely based upon ideas that were formulated nearly half a century ago but that have very recently been revived and considerably extended in large part by the availability of massive computing resources. These systems were once referred to as connectionist and now as if to distance them from their origins in the memory of their denunciation, dismissal and eventual restoration and reinvention, they are typically referred to as "deep" as in "consisting of multiple layers" thereby differentiating them from the simpler, less powerful perceptron models of the 1980s.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+The sequence of discussion log entries \emdash{} {\urlh{https://web.stanford.edu/class/cs379c/class_messages_listing/index.html#integrated_architecture_part_one}{Part~1}} on May~15, {\urlh{https://web.stanford.edu/class/cs379c/class_messages_listing/index.html#integrated_architecture_part_two}{Part~2}} on May~17, {\urlh{https://web.stanford.edu/class/cs379c/class_messages_listing/index.html#integrated_architecture_part_three}{Part~3}} on May~19 and {\urlh{https://web.stanford.edu/class/cs379c/class_messages_listing/index.html#integrated_architecture_part_four}{Part~4}} on May~21 \emdash{} summarize the basic biological subsystems and cite the best references I know of offering additional relevant background and will be adapted for this section.
+
+Note that these entries {\it{do not}} provide any detail about how you might translate these components into a fully differentiable model. Resolving this issue will be the most interesting challenge in completing student final projects. This section on biological foundations will also include excerpts from my {\urlh{/u/tld/Drive/write/lectures/stanford/stanford_course_archives/spring_2018/calendar_invited_talks/lectures/04/03/slides/index.html}{first}} lecture on April~3 and {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html}{second}} lecture on April~5.
+
+\footnote{%
+%
+  The neuroscientist, Moran Cerf, likes to recall an incident that occurred to him when he was young. Cerf enjoyed playing video games but couldn't afford to buy them and so he would go to stores that sold video games and play the demos. He recalls one time in which he started playing a new game and was doing remarkably well after a very short time having reached level III play before being interrupted by a message displayed on the screen that read "Insert coin to play". He then realized that he hadn't been playing the game at all but rather he simply had been moving the joystick and had been imagining \emdash{} indeed he was confident that \emdash{} his moves were causing his meteoric rise in level. In hindsight it was clear to him that there were many times in which he had moved the joystick in the wrong direction but had remembered it as being the right direction and having the intended effect of improving your score. His subsequent research focuses on how human memory is susceptible to suggestion to the extent that we often remember what we want to and not what actually happened. Time and memory are intertwined. The former we experience as being incongruously mutable \emdash{} an hour can seem infinitesimally short and a second interminably long, while the latter seems to us incontrovertibly fixed and yet neuroscience tells us that memories are subject to fantasy and random happenstance. It is interesting to imagine having an infallibly accurate source we could consult to determine the validity of any memory?  This line of reasoning reminds me of a book by Nick Harkaway entitled {\it{Gnomon}} that plays with both time and memory and left me feeling unsettled and unsure of myself, possibly in a good way, but who's to say. If you're interested Moran Cerf's research, check out this YouTube{\urlh{https://www.youtube.com/watch?v=EVj3sU37gdI}{}{video}} of Cerf speaking at Talks at Google in which he "describes his lab's work studying the brains of humans using unique tools to eavesdrop on the activity of individual cells of patients undergoing brain surgery while they are awake and behaving. He discusses how the work sheds light on the ways our brain processes information, and reflects on what it tells us about how we create the complex narrative we call 'us'."}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\subsubsection*{Resources}
+
+Michael Graziano's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/10/videos/Michael_Graziano_CS379C_04-10-18.mp4}{presentation}} on machines that incorporate an internal model of what consciousness is and attribute that model to themselves and others to make predictions about human behavior~\cite{GrazianoFiRAI-17}\footnote{%
+%
+  The abstract for Graziano~\cite{GrazianoFiRAI-17}:
+%
+  \begin{quotation}
+%
+   The purpose of the attention schema theory is to explain how an information-processing device, the brain, arrives at the claim that it possesses a non-physical, subjective awareness, and assigns a high degree of certainty to that extraordinary claim. The theory does not address how the brain might actually possess a non-physical essence. It is not a theory that deals in the non-physical. It is about the computations that cause a machine to make a claim and to assign a high degree of certainty to the claim. The theory is offered as a possible starting point for building artificial consciousness. Given current technology, it should be possible to build a machine that contains a rich internal model of what consciousness is, attributes that property of consciousness to itself and to the people it interacts with, and uses that attribution to make predictions about human behavior. Such a machine would "believe" it is conscious and act like it is conscious, in the same sense that the human machine believes and acts.
+%
+  \end{quotation}}.
+
+Randall O'Reilly's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/12/videos/Randall_OReilly_CS379C_04-12-18.mp4}{presentation}} on learning mechanisms that rely on a computational model of the prefrontal cortex to control both itself and other brain areas in a strategic, task-appropriate manner~\cite{OReillyandFrankNC-06}\footnote{%
+%
+  The abstract for O'Reilly and Frank~\cite{OReillyandFrankNC-06}:
+%
+  \begin{quotation}
+%
+   The prefrontal cortex has long been thought to subserve both working memory (the holding of information online for processing) and executive functions (deciding how to manipulate working memory and perform processing). Although many computational models of working memory have been developed, the mechanistic basis of executive function remains elusive, often amounting to a homunculus. This article presents an attempt to deconstruct this homunculus through powerful learning mechanisms that allow a computational model of the prefrontal cortex to control both itself and other brain areas in a strategic, task-appropriate manner. These learning mechanisms are based on subcortical structures in the midbrain, basal ganglia, and amygdala, which together form an actor-critic architecture. The critic system learns which prefrontal representations are task relevant and trains the actor, which in turn provides a dynamic gating mechanism for controlling working memory updating. Computationally, the learning mechanism is designed to simultaneously solve the temporal and structural credit assignment problems.
+%
+  \end{quotation}}.
+
+Jay McClelland's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/19/slides/Jay_McClelland_CS379C_04-19-18.pdf}{presentation}} on complementary learning systems that avoid catastrophic forgetting and support the stable learning of new knowledge and learning with imbalanced class labels~\cite{SprechmannetalICLR-18}\footnote{%
+%
+  The abstract for Sprechmann~\etal{}~\cite{SprechmannetalICLR-18}:
+%
+  \begin{quotation}
+%
+   Deep neural networks have excelled on a wide range of problems, from vision to language and game playing. Neural networks very gradually incorporate information into weights as they process data, requiring very low learning rates. If the training distribution shifts, the network is slow to adapt, and when it does adapt, it typically performs badly on the training distribution before the shift. Our method, Memory-based Parameter Adaptation, stores examples in memory and then uses a context-based lookup to directly modify the weights of a neural network. Much higher learning rates can be used for this local adaptation, reneging the need for many iterations over similar data before good predictions can be made. As our method is memory-based, it alleviates several shortcomings of neural networks, such as catastrophic forgetting, fast, stable acquisition of new knowledge, learning with an imbalanced class labels, and fast learning during evaluation. We demonstrate this on a range of supervised tasks: large-scale image classification and language modelling.
+%
+  \end{quotation}}.
+
+Matt Botvinick's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/26/slides/Matt_Botvinick_CS379C_04-26-18.pdf}{presentation}} describing a new model of reward-based learning in which a traditional dopamine system trains the prefrontal cortex to operate as its own free-standing learning system~\cite{WangetalNATURE-NEUROSCIENCE-18}\footnote{%
+%
+  The abstract for Wang~\etal{}~\cite{WangetalNATURE-NEUROSCIENCE-18}:
+%
+  \begin{quotation}
+%
+   Over the past 20 years, neuroscience research on reward-based learning has converged on a canonical model, under which the neurotransmitter dopamine stamps in associations between situations, actions and rewards by modulating the strength of synaptic connections between neurons. However, a growing number of recent findings have placed this standard model under strain. We now draw on recent advances in artificial intelligence to introduce a new theory of reward-based learning. Here, the dopamine system trains another part of the brain, the prefrontal cortex, to operate as its own free-standing learning system. This new perspective accommodates the findings that motivated the standard model, but also deals gracefully with a wider range of observations, providing a fresh foundation for future research.
+%
+  \end{quotation}}.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

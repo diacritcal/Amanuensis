@@ -14,25 +14,51 @@
 \endrawhtml
 \subsection*{Foundations}
 
-Michael Graziano's
-https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/10/videos/Michael_Graziano_CS379C_04-10-18.mp4
-Randall O'Reilly's
-https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/12/videos/Randall_OReilly_CS379C_04-12-18.mp4
-Jay McClelland's
-https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/19/slides/Jay_McClelland_CS379C_04-19-18.pdf
-Matt Botvinick's
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Here are the parts of the brain that we care about in this monograph [...] note here or in the next couple paragraphs that while we have not specifically represented the reward center of the brain \emdash{} the so-called limbic system \emdash{} it is not as though the system we are talking about here has no connection to rewards, but rather that our use of the term is very limited and has little or nothing to do with the related parts of the brain except insofar as we employ a reward signal based upon externally generated stimuli that guides learning.
+\subsubsection*{Resources}
 
-These are the parts of the brain that will provide us with important hints about how to build an integrated system capable of collaborating with human experts in designing complex artifacts like computer programs.
+Michael Graziano's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/10/videos/Michael_Graziano_CS379C_04-10-18.mp4}{presentation}} on machines that incorporate an internal model of what consciousness is and attribute that model to themselves and others to make predictions about human behavior~\cite{GrazianoFiRAI-17}\footnote{%
+%
+  The abstract for Graziano~\cite{GrazianoFiRAI-17}:
+%
+  \begin{quotation}
+%
+   The purpose of the attention schema theory is to explain how an information-processing device, the brain, arrives at the claim that it possesses a non-physical, subjective awareness, and assigns a high degree of certainty to that extraordinary claim. The theory does not address how the brain might actually possess a non-physical essence. It is not a theory that deals in the non-physical. It is about the computations that cause a machine to make a claim and to assign a high degree of certainty to the claim. The theory is offered as a possible starting point for building artificial consciousness. Given current technology, it should be possible to build a machine that contains a rich internal model of what consciousness is, attributes that property of consciousness to itself and to the people it interacts with, and uses that attribution to make predictions about human behavior. Such a machine would “believe” it is conscious and act like it is conscious, in the same sense that the human machine believes and acts.
+%
+  \end{quotation}}.
 
-Fortunately, the relevant lessons we have learned have been compiled into systems level descriptions that we can directly apply to building such systems. Indeed, the handful of basic functions identified by labeled shapes in the diagram provide us with most of what we need to guide our design.
+Randall O'Reilly's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/12/videos/Randall_OReilly_CS379C_04-12-18.mp4}{presentation}} on learning mechanisms that rely on a computational model of the prefrontal cortex to control both itself and other brain areas in a strategic, task-appropriate manner~\cite{OReillyandFrankNC-06}\footnote{%
+%
+  The abstract for O'Reilly and Frank~\cite{OReillyandFrankNC-06}:
+%
+  \begin{quotation}
+%
+   The prefrontal cortex has long been thought to subserve both working memory (the holding of information online for processing) and executive functions (deciding how to manipulate working memory and perform processing). Although many computational models of working memory have been developed, the mechanistic basis of executive function remains elusive, often amounting to a homunculus. This article presents an attempt to deconstruct this homunculus through powerful learning mechanisms that allow a computational model of the prefrontal cortex to control both itself and other brain areas in a strategic, task-appropriate manner. These learning mechanisms are based on subcortical structures in the midbrain, basal ganglia, and amygdala, which together form an actor-critic architecture. The critic system learns which prefrontal representations are task relevant and trains the actor, which in turn provides a dynamic gating mechanism for controlling working memory updating. Computationally, the learning mechanism is designed to simultaneously solve the temporal and structural credit assignment problems.
+%
+  \end{quotation}}.
 
-The integrated systems that we discuss in this monograph are largely based upon ideas that were formulated nearly half a century ago but that have very recently been revived and considerably extended in large part by the availability of massive computing resources.
+Jay McClelland's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/19/slides/Jay_McClelland_CS379C_04-19-18.pdf}{presentation}} on complementary learning systems that avoid catastrophic forgetting and support the stable learning of new knowledge and learning with imbalanced class labels~\cite{SprechmannetalICLR-18}\footnote{%
+%
+  The abstract for Sprechmann~\etal{}~\cite{SprechmannetalICLR-18}:
+%
+  \begin{quotation}
+%
+   Deep neural networks have excelled on a wide range of problems, from vision to language and game playing. Neural networks very gradually incorporate information into weights as they process data, requiring very low learning rates. If the training distribution shifts, the network is slow to adapt, and when it does adapt, it typically performs badly on the training distribution before the shift. Our method, Memory-based Parameter Adaptation, stores examples in memory and then uses a context-based lookup to directly modify the weights of a neural network. Much higher learning rates can be used for this local adaptation, reneging the need for many iterations over similar data before good predictions can be made. As our method is memory-based, it alleviates several shortcomings of neural networks, such as catastrophic forgetting, fast, stable acquisition of new knowledge, learning with an imbalanced class labels, and fast learning during evaluation. We demonstrate this on a range of supervised tasks: large-scale image classification and language modelling.
+%
+  \end{quotation}}.
 
-These systems were once referred to as connectionist and now as if to distance them from their origins in the memory of their denunciation, dismissal and eventual restoration and reinvention, they are typically referred to as "deep" as in "consisting of multiple layers" thereby differentiating them from the simpler, less powerful perceptron models of the 80s.
+Matt Botvinick's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/26/slides/Matt_Botvinick_CS379C_04-26-18.pdf}{presentation}} describing a new model of reward-based learning in which a traditional dopamine system trains the prefrontal cortex to operate as its own free-standing learning system~\cite{WangetalNATURE-NEUROSCIENCE-18}\footnote{%
+%
+  The abstract for Wang~\etal{}~\cite{WangetalNATURE-NEUROSCIENCE-18}:
+%
+  \begin{quotation}
+%
+   Over the past 20 years, neuroscience research on reward-based learning has converged on a canonical model, under which the neurotransmitter dopamine stamps in associations between situations, actions and rewards by modulating the strength of synaptic connections between neurons. However, a growing number of recent findings have placed this standard model under strain. We now draw on recent advances in artificial intelligence to introduce a new theory of reward-based learning. Here, the dopamine system trains another part of the brain, the prefrontal cortex, to operate as its own free-standing learning system. This new perspective accommodates the findings that motivated the standard model, but also deals gracefully with a wider range of observations, providing a fresh foundation for future research.
+%
+  \end{quotation}}.
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -55,13 +81,45 @@ These systems were once referred to as connectionist and now as if to distance t
 %%% Pritzel~\etal{}~\cite{PritzeletalCoRR-17} neural episodic control
 %%% Wayne~\etal{}~\cite{WayneetalCoRR-18} unsupervised predictive memory
 
-Matt Botvinick's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/26/slides/Matt_Botvinick_CS379C_04-26-18.pdf}{presentation}} on the prefrontal cortex as a meta learning system~\cite{WangetalBIORXIV-18}.
+Neil Rabinowitz's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/17/slides/Neil_Rabinowitz_CS379C_04-17-18.pdf}{presentation}} on learning a machine theory-of-mind model that relies on meta-learning to build mental models of the agents that it encounters from observations of their behaviour alone~\cite{RabinowitzetalCoRR-18}\footnote{%
+%
+  The abstract for Rabinowitz~\etal{}~\cite{RabinowitzetalCoRR-18}:
+%
+  \begin{quotation}
+%
+    Theory of mind (ToM; Premack and Woodruff, 1978) broadly refers to humans' ability to represent the mental states of others, including their desires, beliefs, and intentions. We propose to train a machine to build such models too. We design a Theory of Mind neural network \emdash{} a ToMnet \emdash{} which uses meta-learning to build models of the agents it encounters, from observations of their behaviour alone. Through this process, it acquires a strong prior model for agents' behaviour, as well as the ability to bootstrap to richer predictions about agents' characteristics and mental states using only a small number of behavioural observations. We apply the ToMnet to agents behaving in simple gridworld environments, showing that it learns to model random, algorithmic, and deep reinforcement learning agents from varied populations, and that it passes classic ToM tasks such as the "Sally-Anne" test (Wimmer and Perner, 1983; Baron-Cohen et al., 1985) of recognising that others can hold false beliefs about the world. We argue that this system \emdash{} which autonomously learns how to model other agents in its world \emdash{} is an important step forward for developing multi-agent AI systems, for building intermediating technology for machine-human interaction, and for advancing the progress on interpretable AI.
+%
+\end{quotation}}.
 
-Neil Rabinowitz's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/17/slides/Neil_Rabinowitz_CS379C_04-17-18.pdf}{presentation}} machine theory-of-mind modeling~\cite{RabinowitzetalCoRR-18}. 
+Greg Wayne's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/03/slides/Greg_Wayne_CS379C_05-03-18.pdf}{presentation}} on {\tt{MERLIN}} a method for prediction in environments corresponding to partially observable Markov decision processes in which memory formation is guided by predictive modeling~\cite{WayneetalCoRR-18}\footnote{%
+%
+  The abstract for Wayne~\etal{}~\cite{WayneetalCoRR-18}:
+%
+  \begin{quotation}
+%
+    Animals execute goal-directed behaviours despite the limited range and scope of their sensors. To cope, they explore environments and store memories maintaining estimates of important information that is not presently available. Recently, progress has been made with artificial intelligence (AI) agents that learn to perform tasks from sensory input, even at a human level, by merging reinforcement learning (RL) algorithms with deep neural networks, and the excitement surrounding these results has led to the pursuit of related ideas as explanations of non-human animal learning. However, we demonstrate that contemporary RL algorithms struggle to solve simple tasks when enough information is concealed from the sensors of the agent, a property called "partial observability". An obvious requirement for handling partially observed tasks is access to extensive memory, but we show memory is not enough; it is critical that the right information be stored in the right format. We develop a model, the Memory, RL, and Inference Network (MERLIN), in which memory formation is guided by a process of predictive modeling. MERLIN facilitates the solution of tasks in 3D virtual reality environments for which partial observability is severe and memories must be maintained over long durations. Our model demonstrates a single learning agent architecture that can solve canonical behavioural tasks in psychology and neurobiology without strong simplifying assumptions about the dimensionality of sensory input or the duration of experiences.
+%
+  \end{quotation}}.
 
-Greg Wayne's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/03/slides/Greg_Wayne_CS379C_05-03-18.pdf}{presentation}} on {\tt{MERLIN}} and prediction in partially observable Markov decision problems~\cite{WayneetalCoRR-18}.
+Oriol Vinyals' {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/10/slides/Oriol_Vinyals_CS379C_05-10-18.pdf}{presentation}} on an approach for model-based plan construction, evaluation and execution applied to sequential decision making problems relying on a method of imagination-based forecasting~\cite{PascanuetalCoRR-17}\footnote{%
+%
+  The abstract for Pascanu~\etal{}~\cite{PascanuetalCoRR-17}:
+%
+  \begin{quotation}
+%
+   Conventional wisdom holds that model-based planning is a powerful approach to sequential decision-making. It is often very challenging in practice, however, because while a model can be used to evaluate a plan, it does not prescribe how to construct a plan. Here we introduce the "Imagination-based Planner", the first model-based, sequential decision-making agent that can learn to construct, evaluate, and execute plans. Before any action, it can perform a variable number of imagination steps, which involve proposing an imagined action and evaluating it with its model-based imagination. All imagined actions and outcomes are aggregated, iteratively, into a "plan context" which conditions future real and imagined actions. The agent can even decide how to imagine: testing out alternative imagined actions, chaining sequences of actions together, or building a more complex "imagination tree" by navigating flexibly among the previously imagined states using a learned policy. And our agent can learn to plan economically, jointly optimizing for external rewards and computational costs associated with using its imagination. We show that our architecture can learn to solve a challenging continuous control problem, and also learn elaborate planning strategies in a discrete maze-solving task. Our work opens a new direction toward learning the components of a model-based planning system and how to use them.  
+%
+  \end{quotation}}.
 
-Oriol Vinyals' {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/10/slides/Oriol_Vinyals_CS379C_05-10-18.pdf}{presentation}} on imagination-based planning and related papers including Pascanu~\etal{}~\cite{PascanuetalCoRR-17}.
+Devi Parikh's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/22/index.html}{public lectures}} on learning to conduct meaningful dialog with humans in natural, conversational language by grounding the conversation in shared visual experience, inferring its context from history~\cite{DasetalCVPR-17}\footnote{%
+%
+  The abstract for Das~\etal{}~\cite{DasetalCVPR-17}:
+%
+  \begin{quotation}
+%
+    We introduce the task of Visual Dialog, which requires an AI agent to hold a meaningful dialog with humans in natural, conversational language about visual content. Specifically, given an image, a dialog history, and a question about the image, the agent has to ground the question in the image, infer its context from history, and answer the question accurately. Visual Dialog is disentangled enough from a specific downstream task so as to serve as a general test of machine intelligence, while being grounded in vision enough to allow objective evaluation of individual responses and benchmark progress. We develop a novel two-person chat data-collection protocol to curate a large-scale Visual Dialog dataset (VisDial). VisDial v0.9 has been released and contains 1 dialog with 10 question-answer pairs on \hmapprox{}120k images from COCO, with a total of \hmapprox{}1.2M dialog question-answer pairs. We introduce a family of neural encoder-decoder models for Visual Dialog with 3 encoders \emdash{} Late Fusion, Hierarchical Recurrent Encoder and Memory Network \emdash{} and 2 decoders (generative and discriminative), which outperform a number of sophisticated baselines. We propose a retrieval-based evaluation protocol for Visual Dialog where the AI agent is asked to sort a set of candidate answers and evaluated on metrics such as mean-reciprocal-rank of human response. We quantify gap between machine and human performance on the Visual Dialog task via human studies. Our dataset, code, trained models and visual chatbot are available {\urlh{https://visualdialog.org/}{here}}.
+%
+  \end{quotation}}.
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -76,15 +134,44 @@ Oriol Vinyals' {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_tal
 
 \subsubsection*{Resources}
 
-Daniel Abolafia's
-https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/24/slides/Daniel_Abolafia_CS379C_04-24-18.pdf
-Graham Neubig's
-https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/01/slides/Graham_Neubig_CS379C_05-01-18.pdf
-Rishabh Singh's
-https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/24/videos/Rishabh_Singh_CS379C_05-24-18.mp4
-Dawn Song's
-https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/31/videos/Dawn_Song_CS379C_05-31-18.mp4
+Daniel Abolafia's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/24/slides/Daniel_Abolafia_CS379C_04-24-18.pdf}{presentation}} on iterative optimization for program synthesis in the presence of a reward function over the output of programs, where the goal is to find programs with maximal rewards~\cite{AbolafiaetalCoRR-18}\footnote{%
+%
+  The abstract for Abolafia~\etal{}~\cite{AbolafiaetalCoRR-18}:
+%
+  \begin{quotation}
+%
+    We consider the task of program synthesis in the presence of a reward function over the output of programs, where the goal is to find programs with maximal rewards. We employ an iterative optimization scheme, where we train an RNN on a dataset of K best programs from a priority queue of the generated programs so far. Then, we synthesize new programs and add them to the priority queue by sampling from the RNN. We benchmark our algorithm, called priority queue training (or PQT), against genetic algorithm and reinforcement learning baselines on a simple but expressive Turing complete programming language called BF. Our experimental results show that our simple PQT algorithm significantly outperforms the baselines. By adding a program length penalty to the reward function, we are able to synthesize short, human readable programs.
+%
+  \end{quotation}}.
+
+Graham Neubig's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/01/slides/Graham_Neubig_CS379C_05-01-18.pdf}{presentation}} on a novel neural architecture for parsing natural language descriptions into source code powered by a grammar model to explicitly capture the target syntax as prior knowledge~\cite{YinandNeubigACL-17}\footnote{%
+%
+  The abstract for Yin and Neubig~\cite{YinandNeubigACL-17}:
+%
+  \begin{quotation}
+%
+    We consider the problem of parsing natural language descriptions into source code written in a general-purpose programming language like Python. Existing data-driven methods treat this problem as a language generation task without considering the underlying syntax of the target programming language. Informed by previous work in semantic parsing, in this paper we propose a novel neural architecture powered by a grammar model to explicitly capture the target syntax as prior knowledge. Experiments find this an effective way to scale up to generation of complex programs from natural language descriptions, achieving state-of-the-art results that well outperform previous code generation and semantic parsing approaches.
+%
+  \end{quotation}}.
+
+Rishabh Singh's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/24/videos/Rishabh_Singh_CS379C_05-24-18.mp4}{presentation}} on using a strong statistical model for semantic code repair to predict bug locations and exact fixes without access to information about the intended correct behavior of the program.~\cite{DevlinetalICLR-18}\footnote{%
+%
+  The abstract for Devlin~\etal{}~\cite{DevlinetalICLR-18}:
+%
+  \begin{quotation}
+%
+    We study the problem of semantic code repair, which can be broadly defined as automatically fixing non-syntactic bugs in source code. The majority of past work in semantic code repair assumed access to unit tests against which candidate repairs could be validated. In contrast, the goal here is to develop a strong statistical model to accurately predict both bug locations and exact fixes without access to information about the intended correct behavior of the program. Achieving such a goal requires a robust contextual repair model, which we train on a large corpus of real-world source code that has been augmented with synthetically injected bugs. Our framework adopts a two-stage approach where first a large set of repair candidates are generated by rule-based processors, and then these candidates are scored by a statistical model using a novel neural network architecture which we refer to as Share, Specialize, and Compete. Specifically, the architecture (1) generates a  shared encoding of the source code using an RNN over the abstract syntax tree, (2) scores each candidate repair using specialized network modules, and (3) then normalizes these scores together so they can compete against one another in comparable probability space. We evaluate our model on a real-world test set gathered from GitHub containing four common categories of bugs. Our model is able to predict the exact correct repair 41\% of the time with a single guess, compared to 13\% accuracy for an attentional sequence-to-sequence model.
+%
+  \end{quotation}}.
+
+Dawn Song and Xinyun Chen's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/31/videos/Dawn_Song_CS379C_05-31-18.mp4}{presentation}} on program synthesis from input-output examples, tree-to-tree neural networks for program translation, and attention for program synthesis from natural lanquage descriptions~\cite{ChenetalICLR-18b}\footnote{%
+%
+  The abstract for Chen~\etal{}~\cite{ChenetalICLR-18b}:
+%
+  \begin{quotation}
+%
+    Program translation is an important tool to migrate legacy code in one language into an ecosystem built in a different language. In this work, we are the first to consider employing deep neural networks toward tackling this problem. We observe that program translation is a modular procedure, in which a sub-tree of the source tree is translated into the corresponding target sub-tree at each step. To capture this intuition, we design a tree-to-tree neural network as an encoder-decoder architecture to translate a source tree into a target one. Meanwhile, we develop an attention mechanism for the tree-to-tree model, so that when the decoder expands one non-terminal in the target tree, the attention mechanism locates the corresponding sub-tree in the source tree to guide the expansion of the decoder. We evaluate the program translation capability of our tree-to-tree model against several state-of-the-art approaches. Compared against other neural translation models, we observe that our approach is consistently better than the baselines with a margin of up to 15 points. Further, our approach can improve the previous state-of-the-art program translation approaches by a margin of 20 points on the translation of real-world projects.
+%
+  \end{quotation}}.
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
