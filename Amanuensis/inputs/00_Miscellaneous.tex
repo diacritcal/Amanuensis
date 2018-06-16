@@ -1,5 +1,66 @@
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Introduction}
+\section{Inspiration}
+\section{Foundation}
+\section{Representation}
+\section{Communication}
+\section{Interaction}
+\section{Production}
+\section{Generation}
+\section{Synthesis}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction: The Programmer's Apprentice}  %%% https://en.wikipedia.org/wiki/Knowledge_Based_Software_Assistant
+\section{Representation: Cognitive Neurosciences}    %%% https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+\section{Interaction: Natural Language Processing}    %%% https://en.wikipedia.org/wiki/Natural_language_processing
+\section{Generation: Automated Code Synthesis}      %%% https://en.wikipedia.org/wiki/Automatic_programming
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Knowledge Representation} https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning ~\cite{Brachmanetal2004}
+\section{The Cognitive Neurosciences} https://en.wikipedia.org/wiki/Cognitive_neuroscience ~\cite{Gazzaniga2009}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This particular section concerns the topic of {\urlh{https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning}{knowledge representation}}~\cite{Brachmanetal2004} as it applies to the programmer's apprentice problem and emphasises contributions from the {\urlh{https://en.wikipedia.org/wiki/Cognitive_neuroscience}{cognitive neurosciences}}~\cite{Gazzaniga2009} as they apply to modeling how information is represented in human-inspired cognitive architectures and connectionist models in particular\footnote{%
+%
+The phrases {\urlh{https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning}{Knowledge Representation}}~\cite{Brachmanetal2004} and {\urlh{https://en.wikipedia.org/wiki/Cognitive_neuroscience}{Cognitive Neuroscience}}~\cite{Gazzaniga2009} refer to important long-standing areas of study, each with their respective academic departments, national and international conferences and large numbers of advocates and adepts. Mentioning them both in the same breath could be orthodoxy or heresy depending on the context and the company you keep, but both disciplines \emdash{} it could be argued that each one of the two phrases might better be described as a constellation of specialized disciplines\footnote{%
+%
+  The phrase {\urlh{https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning}{Knowledge Representation}} seems so dated that it must be back in vogue again. It's interesting to think about the evolution of our thinking about representation as chronicled in the names of major technical conferences relating to artificial intelligence. By 1990, the major national and international AI conferences, including the {\urlh{http://www.aaai.org/Conferences/conferences.php}{National Conference on Artificial Intelligence}} \emdash{} I co-chaired the conference in 1991 when it was held in Anaheim, California \emdash{} and the {\urlh{https://ijcai.org/}{International Joint Conference on Artificial Intelligence}} \emdash{} I co-chaired IJCAI-99 held in Stockholm, were getting so large and were receiving so many submissions that first satellite and then independent conferences began springing up to cater to special interests including researchers interested in representation. For example, Ronald Brachman, Hector Levesque and Raymond Reiter co-chaired the first {\urlh{http://www.kr.org/index.php}{International Conference on Knowledge Representation and Reasoning}} (KR-89) in 1989. Then Usama Fayyad and Ramasamy Uthurusamy chaired the first {\urlh{https://www.aaai.org/Press/Proceedings/kdd95.php}{International Conference on Knowledge Discovery and Data Mining}} (KDD-95) in 1995. More recently Yoshua Bengio and Yann LeCun chaired the first {\urlh{International Conference on Learning Representations}{International Conference on Learning Representations}} (ICLR-13) in 2013. We might extrapolate the trend and imagine Vinod Khosla, Ray Kurzweil, Elon Musk, Peter Thiel and Mark Zuckerberg will co-chair the first {\urlh{https://www.santafe.edu/research/initiatives/interplanetary-project}{Interplanetary Conference on Instantaneous Thought and Infinitely Extensible Memory}} (ITEM-37) in 2037.} 
+%
+\emdash{} have made major contributions to our understanding of intelligence both biological and artificial. Together cognitive neurosciences make up a small but active contingent within the larger population of scientists who consider themselves part of neuroscience including anatomical, behavioral, cellular, cognitive, computational, developmental, genetic, molecular, pharmacological, physiological, psychological and systems neuroscience focusing on neural circuits and their function.}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_02}{Slide~2}}} %%% relevant anatomy of the brain\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_03}{Slide~3}}} %%% schema theory, global workspace theory\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_05}{Slide~5}}} %%% global workspace theory\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_06}{Slide~6}}} %%% basic artificial neural network architecture\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_07}{Slide~7}}} %%% programmer's apprentice network architecture\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_10}{Slide~10}}} %%% somatosensory and primary motor cortex\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_11}{Slide~11}}} %%% integrated development environment\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_13}{Slide~13}}} %%% entorhinal cortex and episodic memory\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_14}{Slide~14}}} %%% complementary learning and the hippocampus\\
+{{\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/05/slides/index.html#CS379C_INTRODUCTORY_LECTURE_2_SLIDE_15}{Slide~15}}} %%% machine theory of mind model\\
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% GLOVE .... https://nlp.stanford.edu/projects/glove/
+
+GloVe is an unsupervised learning algorithm for obtaining vector representations for words. Training is performed on aggregated global word-word co-occurrence statistics from a corpus, and the resulting representations showcase interesting linear substructures of the word vector space.
+
+%%% GAIL .... https://arxiv.org/abs/1606.03476
+
+We propose a new general framework for directly extracting a policy from data as if it were obtained by reinforcement learning following inverse reinforcement learning. We show that a certain instantiation of our framework draws an analogy between imitation learning and generative adversarial networks, from which we derive a model-free imitation learning algorithm that obtains significant performance gains over existing model-free methods in imitating complex behaviors in large, high-dimensional environments.
+
+%%% The Jargon of the New, Deeper Freemasonry
+
+The jargon of modern (deep) neural networks is like the argot of a new Fremasonry that has hardly begun to lay the foundations for the restoration of the connectionist temple. Terms like attention, consciousness, imagination, rewards and reinforcement get bandied about as if deeply descriptive of the architectures they are invoked to describe. The odd thing is that on more than one occasion I have found they reveal more than they obfuscate. Still, the learning curve is steep, and the mountain is constantly moving.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \rawhtml
 <a name="introduction_and_high_level_content"></a>
 \endrawhtml

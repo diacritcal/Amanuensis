@@ -3,11 +3,47 @@
 \rawhtml
 <a name="production_code_program_synthesis"></a>
 \endrawhtml
-\subsection*{Production}
+\subsectional{Generation: Automated Code Synthesis}
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\subsubsection*{Resources}
+Given the title, you might have thought this document would be all about automatic programming, but it's really about human augmentation and human-computer collaboration. Programming is all about representing procedural knowledge in an interpretable form, i.e., executable on some computational substrate. Teaching someone to program or, for that matter, teaching someone to do most anything is also about representing and communicating procedural knowledge in an interpretable form \emdash{} the clearer and more precise the communication the simpler and less knowledgeable the computational substrate.
+
+In this section, we attempt to identify special cases in which it is relatively easy for a human programmer to instruct an AI system how to facilitate the conversion of thoughts conveyed in natural language into working programs. We are not anticipating that we will be able to read minds so much as exploit shared knowledge in order to translate succinct descriptions of desired computations \emdash{} along with an implicit understanding of what constitutes a suitable computational solution \emdash{} into working software possibly with guarantees of its correctness and performance.
+
+How does this perspective inform the discussion in this section? Prior to any training the apprentice comes equipped with a very basic language facility and an innate ability to work with computer programs, but the former is practically useless since the meta-learning controller hasn't been trained and the latter only produces results in the same way that a baby has virtually no control over its limbs and torso. It learns to communicate by reinforcement when it successfully carries out a command from the expert programmer. A built-in training system expedites this process and relieves some of the burden from the programmer by generating synthetic commands that serve to initialize the meta-learning controller allowing the assistant to achieve a basic facility for directly translating natural language commands exercising the integrated development environment.
+
+The apprentice also comes pre-trained with a (semantic) language model trained on a corpus that includes a large vocabulary of practical and technical terms used by programmers in talking about programs and programming. The system has also ingested a large corpus of programs and program fragments written in the language that it will use for writing new programs, resulting in an embedding space that encodes these programs and an encoder decoder translation facility that allows it to read and write programs represented as abstract syntax trees.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\setcounter{figure}{2}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%% Figure~{\urlh{#fig_CS379C_Final_Project_Gomezetal_Figure_03}{3}}
+\rawhtml
+<a name="fig_CS379C_Final_Project_Gomezetal_Figure_03"></a>
+\endrawhtml
+\begin{figure}
+%
+  \hrule{}
+%
+  \begin{center}
+    \includegraphics[width=11.0in]{./figures/CS379C_Final_Project_Gomezetal_Figure_03.png}
+  \end{center}
+%
+  \caption{Summary of the proposed LSTM-based state-embedding architecture for $C_{f}$ \emdash{} courtesy of Gomez~\etal{}~\cite{CS379C_Final_Project_Gomezetal-18}.}
+%
+  \hrule{}
+%
+\end{figure}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Figure~{\urlh{#fig_CS379C_Final_Project_Gomezetal_Figure_03}{3}} ... 
+
+\subsubsectional{Resources}
 
 Daniel Abolafia's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/04/24/slides/Daniel_Abolafia_CS379C_04-24-18.pdf}{presentation}} on iterative optimization for program synthesis in the presence of a reward function over the output of programs, where the goal is to find programs with maximal rewards~\cite{AbolafiaetalCoRR-18}\footnote{%
 %
