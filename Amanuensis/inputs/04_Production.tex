@@ -5,15 +5,35 @@
 \endrawhtml
 \subsectional{Generation: Automated Code Synthesis}
 
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Gulwani~\etal{}~\cite{GulwanietalFaTiPL-17} provide an up-to-date survey of challenges and technologies in automated program synthesis. Machine learning is devoted 10 out of the more than 100 pages in the review with neural network methods singled out as a separate section of 6 additional pages. My experience is that most advocates are largely ignorant concerning the relevant history including the many successful applications for handling interesting special cases. I won't attempt to remedy that state of affairs here except to recommend that readers interested in program synthesis spend the time to familiarize themselves with the relevant work including both successes and notable failures. 
+
+For those of you primarily interested in neural-network methods, understanding this background is likely to prove useful in developing hybrid systems that combine connectionist models and more conventional symbolic methods. Already, the power of high-dimensional vector-space representations, context-sensitive embedding spaces and fully-differentiable models trained with backpropagation is winning converts among devotees of more traditional methods, even as the latest generation of neural-network experts working on neural-network code synthesis are rediscovering some of the same special cases that have been exploited in deductive and constraint-based approaches to automated code synthesis.
+
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-Given the title, you might have thought this document would be all about automatic programming, but it's really about human augmentation and human-computer collaboration. Programming is all about representing procedural knowledge in an interpretable form, i.e., executable on some computational substrate. Teaching someone to program or, for that matter, teaching someone to do most anything is also about representing and communicating procedural knowledge in an interpretable form \emdash{} the clearer and more precise the communication the simpler and less knowledgeable the computational substrate.
+Given the title, you might have expected that this document would be all about automatic programming, but it's really about human augmentation and human-computer collaboration. Programming is all about representing procedural knowledge in an interpretable form, i.e., executable on some computational substrate. Teaching someone to program or, for that matter, teaching someone to do most anything nontrivial, is also about representing and communicating procedural knowledge in an interpretable form \emdash{} the clearer and more precise the communication the simpler and less knowledgeable the computational substrate.
 
-In this section, we attempt to identify special cases in which it is relatively easy for a human programmer to instruct an AI system how to facilitate the conversion of thoughts conveyed in natural language into working programs. We are not anticipating that we will be able to read minds so much as exploit shared knowledge in order to translate succinct descriptions of desired computations \emdash{} along with an implicit understanding of what constitutes a suitable computational solution \emdash{} into working software possibly with guarantees of its correctness and performance.
+In this section, we attempt to identify special cases in which it is relatively easy for a human programmer to instruct an AI system how to facilitate the conversion of thoughts conveyed in natural language into working programs \emdash{} see Graham Neubig's CS379C calendar {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/01/index.html}{page}} for a sample of his NLP work on code generation and learning dialog systems. We are not anticipating that we will be able to read minds so much as exploit shared knowledge in order to translate succinct descriptions of desired computations \emdash{} along with an implicit understanding of what constitutes a suitable computational solution \emdash{} into working software possibly with guarantees of its correctness and performance.
 
 How does this perspective inform the discussion in this section? Prior to any training the apprentice comes equipped with a very basic language facility and an innate ability to work with computer programs, but the former is practically useless since the meta-learning controller hasn't been trained and the latter only produces results in the same way that a baby has virtually no control over its limbs and torso. It learns to communicate by reinforcement when it successfully carries out a command from the expert programmer. A built-in training system expedites this process and relieves some of the burden from the programmer by generating synthetic commands that serve to initialize the meta-learning controller allowing the assistant to achieve a basic facility for directly translating natural language commands exercising the integrated development environment.
 
-The apprentice also comes pre-trained with a (semantic) language model trained on a corpus that includes a large vocabulary of practical and technical terms used by programmers in talking about programs and programming. The system has also ingested a large corpus of programs and program fragments written in the language that it will use for writing new programs, resulting in an embedding space that encodes these programs and an encoder decoder translation facility that allows it to read and write programs represented as abstract syntax trees.
+The apprentice also comes pre-trained with a (semantic) {\urlh{https://en.wikipedia.org/wiki/Language_model}{language model}} trained on a corpus that includes a large vocabulary of practical and technical terms used by programmers in talking about programs and programming. The system has also ingested a large corpus of programs and program fragments written in the language that it will use for writing new programs, resulting in an embedding space that encodes these programs and an encoder decoder translation facility that allows it to read and write programs represented as abstract syntax trees. Were there more computer- / natural-language {\urlh{https://en.wikipedia.org/wiki/Parallel_text#Parallel_corpora}{parallel corpora}}, supervised training of systems that depend on natural-language specification as input would be tempting. As it is, we have to rely on more sophisticated strategies.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+Perhaps it is not surprising that many current neural-network approaches take advantage of the fact of neural-network technology originally designed for machine translation, question answering and related natural-language processing applications. Programs are linguistic objects with relatively simple syntax. Their syntax is well understood since linguistically adept computer scientists designed them. Parsing programs is easy. Their semantics is revealed by running them, and not just their input-output behavior \emdash{} execution traces can be used to reveal meaning of every function and fragment. 
+
+Programming languages are syntactically unforgiving \emdash{} a source of aggravation for beginning programmers, but we have sophisticated editors and syntax checkers that avoid most problems and there is no reason not to build them into the integrated development environment used by the programmer's assistant and shared with the programmer. Internally, the assistant can work with equivalent abstract syntax trees making it easy to ingest, embed, manipulate and generate proposals for performing program transformations on such representations. Human readable code can be recovered for the programmer's convenience.
+
+Successful code synthesis \emdash{} for different flavors of success \emdash{} can verified by running the program and comparing with the provided input-output examples. Modulo the intractability of the halting problem, failure for relatively simple programs can be be relatively easily determined. Program {\urlh{https://en.wikipedia.org/wiki/Correctness_(computer_science)}{correctness}} is generally specified with respect to a specification and hence is more difficult to pin down, though the term generally implies the existence of a mathematical proof and, hence, one formal-methods approach to code synthesis involves generating a {\urlh{https://en.wikipedia.org/wiki/Constructive_proof}{constructive proof}} of correctness. 
+
+Semantic embeddings are increasingly common~\cite{DevlinetalICLR-18,ChistyakovetalICLR-17,WangetalCoRR-17,XuetalCoRR-17,PiechetalICML-15} based on {\urlh{https://en.wikipedia.org/wiki/Software_diagnosis#Characteristics}{execution traces}}, {\urlh{https://en.wikipedia.org/wiki/Log_file#Event_logs}{event logs}}, or {\urlh{https://en.wikipedia.org/wiki/Invariant_(computer_science)}{program invariants}}. 
+See this discussion log {\urlh{https://web.stanford.edu/class/cs379c/class_messages_listing/index.html#program_embedding_core_technology}{entry}}
+and Rishabh Singh's CS379C calendar {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/24/index.html}{page}} plus 
+this discussion log {\urlh{https://web.stanford.edu/class/cs379c/class_messages_listing/index.html#execution_logs_program_traces}{entry}}
+and Dawn Song's CS379C calendar {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/31/index.html}{page}} for more on semantic embeddings. I'm not going into detail here for the simple reason that it is still early days and your best approach is to learn more is to read the papers, check out the slides and watch the videos mentioned in this paragraph \emdash{} you might also take a look at Danny Tarlow's automatic programming list {\urlh{./content/Selected_Program_Synthesis_Papers_Tarlow.pdf}{here}}.
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -33,15 +53,27 @@ The apprentice also comes pre-trained with a (semantic) language model trained o
     \includegraphics[width=11.0in]{./figures/CS379C_Final_Project_Gomezetal_Figure_03.png}
   \end{center}
 %
-  \caption{Summary of the proposed LSTM-based state-embedding architecture for $C_{f}$ \emdash{} courtesy of Gomez~\etal{}~\cite{CS379C_Final_Project_Gomezetal-18}.}
+  \caption{Summary of the proposed LSTM-based state-embedding architecture for $C_{f}$ described in Gomez~\etal{}~\cite{CS379C_Final_Project_Gomezetal-18}. The code representation, $C_{f}$, is by default variable in size since the abstract syntax trees that comprise the individual helper functions are variable size. The authors solve this problem by training an autoencoder penalized on reconstruction loss such that the decoded output is the binary tree representation of the original AST.}
 %
   \hrule{}
 %
 \end{figure}
 
-%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Figure~{\urlh{#fig_CS379C_Final_Project_Gomezetal_Figure_03}{3}} ... 
+In {\urlh{https://web.stanford.edu/class/cs379c/}{CS379C}} this year, 30 students, organized in 12 teams proposed and carried out projects relating to the programmer's apprentice. As an example, the team consisting of Marcus Gomez, Nate Gruver, Michelle Lam, Rohun Saxena and Lucy Wang decided based on their coding habits that the most helpful assistant would be one that could be trained to understand design through the structure of an application programming interface ({\urlh{https://en.wikipedia.org/wiki/Application_programming_interface}{API}}) and assist in the completion of the code through a divide-and-conquer approach {\urlh{./content/CS379C_Final_Project_Gomezetal-18.pdf}{PDF}}.
+
+The system they envision would be designed to integrate seamlessly into programmer's workflow, minimize interaction and start from a header file and dependency graph. They took pains to standardize the format of the input in order to simplify learning a compressed fixed-size state vector as an ordered list of GLoVe vectors~\cite{PenningtonetalEMNLP-14} \emdash{} see Figure~{\urlh{#fig_CS379C_Final_Project_Gomezetal_Figure_03}{3}}.
+
+They use the method of generative adversarial imitation learning (GAIL) developed by Ho and Ermon~\cite{HoandErmonCoRR-16} for extracting a policy from data as if it were obtained by reinforcement learning following inverse reinforcement learning. This enables them to derive a model-free imitation learning algorithm that obtains significant performance gains over existing model-free methods in imitating complex behaviors in large, high-dimensional environments.
+
+The details are less important than the diversity and scalabilty of the architectural components now available that allow for the creative manipulation of the ungainly objects that comprise the inputs and outputs of software engineering practice, e.g., natural language specifications of arbitrary format, programs of arbitrary size and computed artifacts such as execution traces that defy explicit encoding due to their size and format variability.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% 
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsectional{Resources}
 
@@ -75,7 +107,7 @@ Rishabh Singh's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_ta
 %
   \end{quotation}}.
 
-Dawn Song and Xinyun Chen's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/31/videos/Dawn_Song_CS379C_05-31-18.mp4}{presentation}} on program synthesis from input-output examples, tree-to-tree neural networks for program translation, and attention for program synthesis from natural lanquage descriptions~\cite{ChenetalICLR-18b}\footnote{%
+Dawn Song and Xinyun Chen's {\urlh{https://web.stanford.edu/class/cs379c/calendar_invited_talks/lectures/05/31/videos/Dawn_Song_CS379C_05-31-18.mp4}{presentation}} on program synthesis from input-output examples, tree-to-tree neural networks for program translation, and attention for program synthesis from natural language descriptions~\cite{ChenetalICLR-18b}\footnote{%
 %
   The abstract for Chen~\etal{}~\cite{ChenetalICLR-18b}:
 %
