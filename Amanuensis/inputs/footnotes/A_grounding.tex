@@ -1,0 +1,44 @@
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FOOTNOTE
+\rawhtml
+<a name="Bootstrap_Development_A_grounding"></a>
+\endrawhtml
+Bootstrapping the programmer's apprentice: Basic cognitive bootstrapping and linguistic grounding
+%%% FOOTNOTE
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The programmer's assistant agent is designed to distinguish between three voices: the voice of the programmer, the voice of the assistant's automated tutor and its own voice. We could have provided an audio track to distinguish these voices, but since there only these three and the overall system can determine when any one of them is speaking, the system simply adds a few bits to each utterance as a proxy for an audio signature allowing the assistant to make such distinctions for itself. When required, we use the same signature to indicate which of the three speakers is responsible for changes to the shared input and output associated with the fully instrumented IDE henceforth abbreviated as FIDE \emdash{} pronounced "/fee/'-/day/", from the Latin meaning: (i) trust, (ii) credit, (iii) fidelity, (iv) honesty. It will also prove useful to further distinguish the voice of the assistant as being in one of two modes: {\it{private}}, engaging in so-called {\urlh{https://en.wikipedia.org/wiki/Intrapersonal_communication}{inner speech}} that is not voiced aloud, and {\it{public}}, meaning spoken out loud for the explicit purpose of communicating with the programmer. We borrow the basic framework for modeling other agents and simple theory-of-mind from Rabinowitz~\etal{}~\cite{RabinowitzetalCoRR-18}.
+
+The bootstrap statistical language model consists of an $n$-gram embedding trained on large general-text language corpus augmented with programming and software-engineering related text drawn from online forums and transcripts of pair-programming dialog. For the time being, we will not pursue the option of trying to acquire a large enough dialog corpus to train an encoder-decoder LSTM/GRU dialog manager / conversational model~\cite{VinyalsandLeICML-15}. In the initial prototype, natural language generation (NLG) output for the automated tutor and assistant will be handled using hierarchical planning technology leveraging ideas developed in the CMU {\urlh{http://www.cs.cmu.edu/~dbohus/ravenclaw-olympus/index-dan.html}{RavenClaw}} dialogue management system~\cite{BohusandRudnickyCS-09}\footnote{%
+%
+  \rawhtml
+  <a name="hierarchical_task_network_planner"></a>
+  \endrawhtml
+%
+  Following~\cite{DeanDIACRITICAL-14,BohusandRudnickyCS-09}, we employ hierarchical planning technology to implement several key components in the underlying bootstrapping and dialog management system. Each such component consists of a hierarchical task network (HTN) representing a collection of hierarchically organized plan schemas designed to run in a lightweight Python implementation of the HTN planner developed by Dana Nau~\etal{}~\cite{NauetalJAIR-03}:
+%
+  \begin{quotation}
+%
+    Hierarchical task network (HTN) planning is an approach to automated planning in which the dependency among actions can be given in the form of hierarchically structured networks. Planning problems are specified in the hierarchical task network approach by providing a set of tasks, which can be:
+%
+    \begin{enumerate}
+%
+    \item {\it{primitive tasks}}, that roughly correspond to the actions of {\urlh{https://en.wikipedia.org/wiki/STRIPS}{STRIPS}},
+%
+    \item {\it{compound tasks}}, that can be seen as composed of a set of simpler tasks, and
+%
+    \item {\it{objective tasks}}, that roughly correspond to the goals of STRIPS, but are more general.
+%
+    \end{enumerate}
+                
+    A solution to an HTN problem is then an executable sequence of primitive tasks that can be obtained from the initial task network by decomposing compound tasks into their set of simpler tasks, and by inserting ordering constraints. {\urlh{https://en.wikipedia.org/wiki/Hierarchical_task_network}{SOURCE}}
+%
+  \end{quotation}},
+%
+but we have plans to explore hybrid natural language generation by combining hard-coded Python dialog agents corresponding to hierarchical task networks and differentiable dialogic encoder-decoder thought-cloud generators using a variant of pointer-generator networks as described by See~\etal{}~\cite{SeeetalACL-17}.
+
+Both the tutor and assistant NLG subsystems will rely on a base-level collection of plans \emdash{} hierarchical task network ({\urlh{#hierarchical_task_network_planner}{HTN}}) \emdash{} that we employ in several contexts plus a set of specialized plans \emdash{} an HTN subnetwork \emdash{} specific to each subsystem. At any given moment in time, a meta control system~\cite{HamricketalCoRR-17} in concert with a reinforcement-learning-trained policy determines the curricular goal constraining the tutor's choice of specific lesson is implemented using a variant of the scheduled auxiliary control paradigm described by Riedmiller~\etal{}~\cite{RiedmilleretalCoRR-18}. Having selected a subset of lessons relevant to the current curricular goal, the meta-controller cedes control to the tutor which selects a specific lesson and a suitable plan to oversee interaction with the agent over the course of the lesson.
+
+Most lessons will require a combination of spoken dialogue and interactive signaling that may include both the agent and the tutor pointing, highlighting, performing edits and controlling the FIDE by executing code and using developer tools like the debugger to change state, set break points and single step the interpreter, but we're getting ahead of ourselves. The curriculum for mastering the basic referential modes is divided into three levels of mastery in keeping with Terrence Deacon's description~\cite{Deacon1998symbolic} and Charles Sanders Peirce's (semiotic) {\urlh{https://en.wikipedia.org/wiki/Semiotic_theory_of_Charles_Sanders_Peirce}{theory of signs}}. The tutor will start at the most basic level, continually evaluating performance to determine when it is time to graduate to the next level or when it is appropriate to revert to an earlier level to provide additional training in order to master the less demanding modes of reference.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
