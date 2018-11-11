@@ -6,7 +6,7 @@
 
 Our objective in developing systems that incorporate characteristics of human intelligence is three fold: First, humans provide a compelling solution to the problem of building intelligent systems that we can use as a basic blueprint and then improve upon. Second, the resulting AI systems are likely to be well suited to developing assistants that complement and extend human intelligence while operating in a manner comprehensible to human understanding. Finally, cognitive and systems neuroscience provide clues to engineers interested in exploiting what we know concerning how humans think about and solve problems. In this appendix, we demonstrate one attempt to concretely realize what we've learned from these disciplines in an architecture constructed from off-the-shelf neural networks. 
 
-The programmer's apprentice relies on multiple sources of input, including dialogue in the form of text utterances, visual information from an editor buffer shared by the programmer and apprentice and information from a specially instrumented integrated development environment designed for analyzing, writing and debugging code adapted to interface seamlessly with the apprentice. This input is processed by a collection of neural networks modeled after the primary sensory areas in the primate brain. The output of these networks feeds into a hierarchy of additional networks corresponding to uni-modal secondary and multi-modal association areas that produce increasingly abstract representations as one ascends the hierarchy \emdash{} see Figure~{\urlh{#fig_Posterior_Cortex_Semantic_Memory}{50}}.
+The programmer's apprentice relies on multiple sources of input, including dialogue in the form of text utterances, visual information from an editor buffer shared by the programmer and apprentice and information from a specially instrumented integrated development environment designed for analyzing, writing and debugging code adapted to interface seamlessly with the apprentice. This input is processed by a collection of neural networks modeled after the primary sensory areas in the primate brain. The outputs of these networks feed into a hierarchy of additional networks corresponding to uni-modal secondary and multi-modal association areas that produce increasingly abstract representations as one ascends the hierarchy \emdash{} see Figure~{\urlh{#fig_Posterior_Cortex_Semantic_Memory}{50}}.
   
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -39,7 +39,7 @@ Stanislas Dehaene and his colleagues at the Coll\`{e}ge de France in Paris devel
 
 Global Workspace Theory accounts for both conscious and unconscious thought with the primary distinction for our purpose being that the former has been selected for attention and the latter has not been so selected. Sensory data arrives at the periphery of the organism. The data is initially processed in the primary sensory areas located in posterior cortex, propagates forward and is further processed in increasingly-abstract multi-modal association areas. Even as information flows forward toward the front of the brain, the results of abstract computations performed in the association areas are fed back toward the primary sensory cortex. This basic pattern of activity is common in all mammals. 
 
-The human brain has evolved to handle language. In particular, humans have a large frontal cortex that includes machinery responsible for conscious awareness and that depends on an extensive network of specialized neurons called spindle cells that span a large portion of the posterior cortex allowing circuits in the frontal cortex to sense relevant activity throughout this area and then manage this activity by creating and maintaining the persistent state vectors that are necessary when inventing extended naratives or working on complex problems that require juggling many component concepts at once. Figure~{\urlh{#fig_Global_Workspace_Conscious_Attention}{51}} suggests a neural architecture combining the idea of a global workspace with that of an attentional system for identifying relevant input.
+The human brain has evolved to handle language. In particular, humans have a large frontal cortex that includes machinery responsible for conscious awareness and that depends on an extensive network of specialized neurons called spindle cells that span a large portion of the posterior cortex allowing circuits in the frontal cortex to sense relevant activity throughout this area and then manage this activity by creating and maintaining the persistent state vectors that are necessary when inventing extended narratives or working on complex problems that require juggling many component concepts at once. Figure~{\urlh{#fig_Global_Workspace_Conscious_Attention}{51}} suggests a neural architecture combining the idea of a global workspace with that of an attentional system for identifying relevant input.
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -75,7 +75,6 @@ Fundamental to our understanding of human cognition is the essential tradeoff be
 The global workspace summarizes recent experience in terms of sensory input, its integration, abstraction and inferred relevance to the context in which the underlying information was acquired. To exploit the knowledge encapsulated in such experience, the apprentice must identify and make available relevant experience. The apprentice’s experiential knowledge is encoded as tuples in a Neural Turing Machine (NTM) memory that supports associative recall. We’ll ignore the details of the encoding process to focus on how episodic memory is organized, searched and applied to solving problems.
 
 In the biological analog of an NTM the hippocampus and entorhinal region of the frontal cortex play the role of episodic memory and several subcortical circuits including the basal ganglia comprise the controller~\cite{OReillyetalLEABRA-16,OReillySCIENCE-06}. The controller employs associative keys in the form of low-dimensional vectors generated from activations highlighted in the global workspace to access related memories that are then actively maintained in the prefrontal cortex and serve to bias processing throughout the brain but particularly in those circuits highlighted in the global workspace. Figure~{\urlh{#fig_Global_Workspace_Episodic_Memory}{52}} provides a sketch of how this is accomplished in the apprentice architecture. 
-
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -204,5 +203,132 @@ These so-called imagination-augmented agents implement a novel architecture for 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The Differentiable Neural Program (DNP) representation and associated NTM controller for managing the call stack and single-stepping through such programs allow us to exploit the advantages of distributed vector representations to predict the next statement in a program under construction. This model makes it easy to take advantage of supplied natural language descriptions and example input / output pairs plus incorporate semantic information in the form of execution traces generated by utilizing the FIDE to evaluate each statement and encoding information about local variables on the stack. 
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Graph Networks is a neural network framework for constructing, modifying and performing inference on differentiable encodings of graphical structures. Battaglia~\etal{}~\cite{BattagliaetalCoRR-18} describe Graph Networks as a "new building block for the AI toolkit with a strong relational inductive bias\footnote{%
+%
+  An {\it{inductive bias}} allows a learning algorithm to prioritize one solution (or interpretation) over another, independent of the observed data~\cite{MitchellTR-80}. The inductive bias of a learning algorithm is the set of assumptions that the learner uses to predict outputs given inputs that it has not encountered. In a Bayesian model, inductive biases are typically expressed through the choice and parameterization of the prior distribution. In other contexts, an inductive bias might be a regularization term added to avoid overfitting, or it might be encoded in the architecture of the algorithm itself. {\urlh{https://en.wikipedia.org/wiki/Inductive_bias}{SOURCE}}},
+%
+the {\it{graph network}}, which generalizes and extends various approaches for neural networks that operate on graphs" by constraining the rules governing the composition of entities and their relationships. In principle, graph networks could be used as an alternative to DNPs.
+
+Li~\etal{}~\cite{LietalICLR-18} describe a closely related model they refer to as a Gated Graph Sequence Neural Network (GGS-NN) that operates on graph networks to produce sequences from graph-structured input. Johnson~\cite{JohnsonICLR-17} introduced the Gated Graph Transformer Neural Network (GGT-NN), an extension of GGS-NNs that uses graph-structured data as an intermediate representation. The model can learn to construct and modify graphs in sophisticated ways based on textual input, and also to use the graphs to produce a variety of outputs. The Graph Network (GN) Block described in Section~3.2 of Battaglia~\etal{}~\cite{BattagliaetalCoRR-18} provides a similar set of capabilities.
+
+The network shown in Figure~{\urlh{#fig_Graph_Nets_Transformer_Utility}{61}} demonstrates how to package the five general transformations described in Johnson’s paper to provide a Swiss-army-knife utility that can be used to manipulate abstract syntax trees in code synthesis simplifying the construction of differentiable neural programs introduced earlier. This graph-networks utility could be integrated into a reinforcement-learning code synthesis module that would learn how to repair programs or perform other forms of synthesis by learning how to predict the best alterations on the program under construction. The Graph Network Block provides many of the same operations.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\setcounter{figure}{60}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Figure~{\urlh{#fig_Graph_Nets_Transformer_Utility}{61}}
+\rawhtml
+<a name="fig_Graph_Nets_Transformer_Utility"></a>
+\endrawhtml
+\begin{figure}
+%
+  \hrule{}
+%
+  \begin{center} 
+    % (/ 1133 3.00) = 375
+    \includegraphics[width=375pt]{./figures/Graph_Nets_Transformer_Utility.png} % 1133 × 836 pixels
+  \end{center}
+%
+  \caption{The above graphic depicts a utility module that takes a graph in the Graph Networks representation and a command corresponding to one of the transformations described in~\cite{JohnsonICLR-17}, carries out the indicated transformation and produces the transformed graph in a recurrent output layer. See the definition of Graph Network Block in Section~3.2 of Battaglia~\etal{}~\cite{BattagliaetalCoRR-18} for an alternative formulation.}
+%
+  \hrule{}
+%
+\end{figure}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The imagination-based planning (IBP) for reinforcement learning framework~\cite{PascanuetalCoRR-17} serves as an example for how the code synthesis module might be implemented. The IBP architecture combines three separate adaptive components: (a) the {\tt{CONTROLLER}} + {\tt{MEMORY}} system which maps a state $s\hmthinsp{}\hmisin{}\hmthinsp{}S$ and history $h\hmthinsp{}\hmisin{}\hmthinsp{}H$ to an action $a\hmthinsp{}\hmisin{}\hmthinsp{}A$; (b) the {\tt{MANAGER}} maps a history $h\hmthinsp{}\hmisin{}\hmthinsp{}H$ to a route $u\hmthinsp{}\hmisin{}\hmthinsp{}U$ that determines whether the system performs an action in the {\tt{COMPUTE}} environment, e.g., single-step the program in the FIDE, or performs an imagination step, e.g., generates a proposal for modifying the existing code under construction; the {\tt{IMAGINATION MODEL}} is a form of dynamical systems model that maps a pair consisting of a state $s\hmthinsp{}\hmisin{}\hmthinsp{}S$ and an action $a\hmthinsp{}\hmisin{}\hmthinsp{}A$ to an imagined next state $s'\hmthinsp{}\hmisin{}\hmthinsp{}S$ and scalar-valued reward $r\hmthinsp{}\hmisin{}\hmthinsp{}R$.
+
+The {\tt{IMAGINATION MODEL}} is implemented as an interaction network~\cite{BattagliaetalNIPS-16} that could also be represented using the graph-networks framework introduced {\urlh{#graph_nets_file_systems_programs}{here}}. The three components are trained by three distinct, concurrent, on-policy training loops. The IBP framework shown in Figure~{\urlh{#Graph_Nets_Imagination_Coding}{62}} allows code synthesis to alternate between exploiting by modifying and running code, and exploring by using the model to investigate and analyze what would happen if you actually did act. The {\tt{MANAGER}} chooses whether to execute a command or predict (imagine) its result and can generate any number of trajectories to produce a tree $h_t$ of imagined results. The {\tt{CONTROLLER}} takes this tree plus the compiled history and chooses an action (command) to carry out in the FIDE.
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\setcounter{figure}{61}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Figure~{\urlh{#Graph_Nets_Imagination_Coding}{62}}
+\rawhtml
+<a name="fig_Graph_Nets_Imagination_Coding"></a>
+\endrawhtml
+\begin{figure}
+%
+  \hrule{}
+%
+  \begin{center} 
+    % (/ 905 3.00) = 315
+    \includegraphics[width=315pt]{./figures/Graph_Nets_Imagination_Coding.png} % 905 × 1096 pixels
+  \end{center}
+%
+  \caption{The above graphic illustrates how we might adapt the imagination-based planning (IBP) for reinforcement learning framework~\cite{PascanuetalCoRR-17} for use as the core of the apprentice code synthesis module. Actions in this case correspond to transformations of the program under development. States incorporate the history of the evolving partial program. Imagination consists of exploring sequences of program transformations.}
+%
+  \hrule{}
+%
+\end{figure}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Context is everything in language and problem solving. When we converse with someone or read a book we keep in mind what was said or written previously. When we attempt to understand what was said in a conversation or formulate what to say next we draw upon our short-term memories of earlier mentioned people and events, but we also draw upon our long-term episodic memories involving the people, places and events related to those explicitly mentioned in the conversation. In solving complex design problems, it is often necessary to keep in mind a large number of specific facts about the different components that go into the design as well as general knowledge pertaining to how those components might be adapted and assembled to produce the final product. 
+
+Much of a programmer’s procedural knowledge about how to write code is baked into various cognitive subroutines that can be executed with minimal thinking. For example, writing a simple {\tt{FOR}} loop in Python to iterate through a list is effortless for an experienced Python programmer, but may require careful thought for an analogous code block in a less familiar programming language like C++. In thinking about how the apprentice’s knowledge of programming is organized in memory, routine tasks would likely be baked into value functions trained by reinforcement learning. When faced with a new challenge involving unfamiliar concepts or seldom used syntax, we often draw upon less structured knowledge stored in episodic memory. The apprentice uses this same strategy.
+
+The neural network architecture for managing dialogue and writing code involves encoder-decoder pairs comprised of gated recurrent networks that are augmented with attention networks. We’ll focus on dialogue to illustrate how context is handled in the process of ingesting (encoding) fragments of an ongoing conversation and generating (decoding) appropriate responses, but the basic architecture is similar for ingesting fragments of code and generating modified fragments that more closely match a specification. The basic architecture employs three attention networks, each of which is associated with a separate encoder network specialized to handle a different type of context. The outputs of the three attention networks are combined and then fed to a single decoder.
+
+The (user response) encoder ingests the most recent utterance produced by the programmer and corresponds to the encoder associated with the encoder-decoder architectures used in machine translation and dialogue management. The (dialogue context) encoder ingests the $N$ words prior to the last utterance. The (episodic memory) encoder ingests older dialogue selected from episodic memory. The attentional machinery responsible for the selection and active maintenance of relevant circuits in the global workspace (GWS) will likely notice and attend to every utterance produced by the programmer. Attentional focus and active maintenance of such circuits in the GWS will result in the corresponding thought vector added to NTM the partition responsible for short-term memory.  
+
+The controller for the NTM partition responsible for short-term (active) memory then generates keys from the newly added thought vectors and transmits these keys to the controller of the NTM partition responsible for long-term (episodic) memory. The episodic memory controller uses these keys to select episodic memories relevant to the current discourse, combining the selected memories into a fixed-length composite thought vector that serves as input for the corresponding encoder. Figure~{\urlh{#Context_Episodic_Memory_Dialog}{63}} depicts the basic architecture showing only two of the three encoders and their associated attention networks, illustrating how the outputs of the attention networks are combined prior to being used by the decoder to generate the next word or words in the assistant’s next utterance. 
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\setcounter{figure}{62}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                   
+%%% Figure~{\urlh{#Context_Episodic_Memory_Dialog}{63}}
+\rawhtml
+<a name="fig_Context_Episodic_Memory_Dialog"></a>
+\endrawhtml
+\begin{figure}
+%
+  \hrule{}
+%
+  \begin{center} 
+    % (/ 1642.0 2.00) = 820
+    \includegraphics[width=820pt]{./figures/Context_Episodic_Memory_Dialog.png} % 1642 × 1049 pixels
+  \end{center}
+%
+  \caption{In the programmer's assistant, the dialogue management and program-transformation systems are implemented using encoder-decoder sequence-to-sequence networks with attention. We adapt the pointer-generator network model developed by See~\etal{}~\cite{SeeetalACL-17} to combine and bring to bear contextual information from multiple sources including short- and long-term memory systems implemented as Neural Turing Machines as summarized in Figures~{\urlh{#fig_Global_Workspace_Episodic_Memory}{52}} and~{\urlh{#fig_High_Level_Assistant_Architecture}{53}}. This graphic illustrates two out of the three contextual sources of information employed by the apprentice. Each source is encoded separately, the relevance of its constituent elements represented as a probability distribution and resulting distributions combined to guide the decoder in generating output.}
+%
+  \hrule{}
+%
+\end{figure}
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+One step of the decoder could add zero, one, or more words, i.e., a phrase, to the current utterance under construction. Memories \emdash{} both short- and long-term \emdash{} are in the form of thought vectors or word sequences that could be used to reconstruct the original thought vectors for embedding or constructing composites by adding context or conditioning to emphasize relevant dimensions. The dialogue manager \emdash{} a $Q$-function network trained by reinforcement learning \emdash{} can also choose not to respond at all or could respond at some length perhaps incorporating references to code, explanations for design choices and demonstrations showing the results of executing code in the IDE.
+
+To control generation, we adapt the pointer-generator network framework developed by See~\etal{} for document summarization~\cite{SeeetalACL-17}. In the standard sequence-to-sequence machine-translation model a weighted average of encoder states becomes the decoder state and attention is just the distribution of weights. In See~\etal{} attention is simpler: instead of weighting input elements, it points at them probabilistically. It isn't necessary to use all the pointers; such networks can mark excerpts by pointing to their start and end constituents. We apply their approach here to digest and integrate contextual information originating from multiple sources.
+
+In humans, memory formation and consolidation involves several systems, multiple stages and can span hours, weeks or months depending on the stage and associated neural circuitry\footnote{%
+%
+  Here is a very brief summary of the different processes involved in human memory consolidation:
+%
+\begin{quotation}
+%
+  Memory consolidation is a category of processes that stabilize a memory trace after its initial acquisition.[1] Consolidation is distinguished into two specific processes, synaptic consolidation, which is synonymous with late-phase long-term potentiation and occurs within the first few hours after learning, and systems consolidation, where hippocampus-dependent memories become independent of the hippocampus over a period of weeks to years. Recently, a third process has become the focus of research, reconsolidation, in which previously-consolidated memories can be made labile again through reactivation of the memory trace. ({\urlh{https://en.wikipedia.org/wiki/Memory_consolidation}{SOURCE}})
+%
+\end{quotation}}.
+%
+Our primary interest relates to the earliest stages of memory formation and role of the hippocampus and entorhinal region of the frontal cortex along with several ancillary subcortical circuits including the basal ganglia (BG). Influenced by the work of O'Reilly and Frank{}~\cite{OReillyandFrankNC-06}, we focus on the function of the dentate gyrus (DG) in the hippocampal formation and encode thought vectors using a sparse, invertible mapping thereby providing a high degree of pattern separation in encoding new information while avoiding interference with existing memories. 
+
+We finesse the details of what gets stored and when by simply storing everything. We could store the sparse representation provided by the DG, but prefer to use this probe as the key in a key-value pair in the NTM partition dedicated to episodic memory and store the raw data as the value. This means we have to reconstruct the original encoding produced when initially ingesting the text of an utterance. This is preferable for two reasons: (i) we need the words \emdash{} or tokens of an abstract syntax tree in the case of ingesting code fragments \emdash{} in order for the decoder to generate the apprentice's response, and (ii) the embeddings of the symbolic entities that constitute their meaning are likely to drift during ongoing training.
 
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

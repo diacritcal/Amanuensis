@@ -1,0 +1,34 @@
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FOOTNOTE
+{\bf{Bootstrapping the programmer's apprentice: Composite behaviors corresponding to simple repairs:}}\\
+%%% FOOTNOTE
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A {\it{software design pattern}} "is a general, reusable solution to a commonly occurring problem within a given context in software design. It is not a finished design that can be transformed directly into source or machine code. It is a description or template for how to solve a problem that can be used in many different situations. Design patterns are formalized best practices that the programmer can use to solve common problems when designing an application or system". They are typically characterized as belonging to one of three categories: {\it{creational}}, {\it{structural}}, or {\it{behavioral}}.
+
+We would like to believe that such patterns provide clear prescriptions for how to tackle challenging programming problems, but know better. Studying such patterns and analyzing examples of their application to practical problems is an excellent exercise for both computer science students learning to program, and practicing software engineers wanting to improve their skills. That said, these design patterns require considerable effort to master and are well beyond what one might hope to accomplish in bootstrapping basic linguistic and programming skills. Indeed, mastery depends on already knowing \emdash{} at the very least \emdash{} the rudiments of these skills. 
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We are willing to concede that mental software is not always expressed in language. For the programmer's apprentice, we are thinking of encoding what is essentially static and syntactic knowledge about programs and programming using four different representations, and what is essentially dynamic and semantic knowledge in a family of structured representations that encode program execution traces of one sort or another. The four static / syntactic representations are summarized as follows:
+%
+\begin{itemize}
+%
+\item (i) distributed (connectionist) representations of natural language as points in high-dimensional embedding spaces \emdash{} thought clouds;
+%
+\item (ii) natural language transcripts of dialogical utterances / interlocutionary acts encoded as lexical token streams \emdash{} word sequences;
+%
+\item (iii) programs in the target programming language represented as structured objects corresponding to augmented {\it{abstract syntax trees}} (ASTs)\emdash{} the augmentations correspond to edges representing procedure calls, iteration and recursion resulting in directed acyclic graphs;
+%
+\item (iv) hierarchical plans corresponding to subnetworks of {\it{hierarchical task networks}} (HTNs) or, if you like, the implied representation of hierarchical plans encoded in value iteration networks~\cite{TamaretalNIPS-16} and goal-based policies~\cite{GroshevetalCoRR-17}. We're also thinking about encoding HTNs as policies using a variation on the idea of {\it{options}}~\cite{SuttonetalAIJ-99} as described in Riedmiller~\etal{}~\cite{RiedmilleretalCoRR-18}; 
+%
+\end{itemize}
+
+The first entry (i) is somewhat misleading in that any one of the remaining three (ii-iv) can be represented as a point / thought cloud using an appropriate embedding method. Thought clouds are the Swiss Army knife of distributed codes. They represent a (constrained) superposition of possibilities allowing us to convert large corpora of serialized structures into point clouds that enable massively parallel search, and subsequently allow us to collapse the wave function, as it were, to read off solutions by re-serializing the distributed encoding of constraints that result from conducting such parallel searches.
+
+We propose to develop encoders and decoders to translate between (serial) representations (ii-iv) where only a subset of conversions are possible or desirable given the expressivity of the underlying representation language. We imagine autoencoders with an {\it{information bottleneck}} that take embeddings of natural language descriptions as input and produces an equivalent HTN representation, combining a mixture of (executable) interlocutory and code synthesis tasks~\cite{AlemietalCoRR-16b,TishbyandZaslavskyCoRR-15}. The interlocutory tasks generate explanations and produce comments and specifications. The code-synthesis tasks serve to generate, repair, debug and test code represented in the FIDE.
+
+Separately encoded embeddings will tend to evolve independently, frustrating attempts to combine them into composite representations that allow powerful means of abstraction. The hope is that we can use natural language as a {\urlh{https://en.wikipedia.org/wiki/Lingua_franca}{lingua franca}} \emdash{} a "bridge" language \emdash{} to coerce agreement among disparate representations by forcing them to cohere along shared, possibly refactored dimensions in much the same way that {\it{trade languages}} serve as an expeditious means of exchanging information between scientists and engineers working in different disciplines or scholars who do not share a native language or dialect.\\
+
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
